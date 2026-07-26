@@ -4,31 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jayant Rewatkar | Portfolio</title>
-    <!-- Bootstrap CSS -->
+    <meta name="description" content="Portfolio of Jayant Rewatkar, a Software Developer, MCA Graduate & Full Stack Developer specializing in Python, Java, REST APIs, and database optimization.">
+    <meta name="author" content="Jayant Rewatkar">
+    <title>Jayant Rewatkar | Software Developer Portfolio</title>
+    
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+    <!-- Font Awesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
+    <!-- Custom CSS Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#navbar-example" data-bs-offset="80" tabindex="0">
+<body data-bs-spy="scroll" data-bs-target="#main-nav" data-bs-offset="100" tabindex="0">
 
-    <!-- Navbar -->
-    <nav id="navbar-example" class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <!-- Interactive Canvas Particle Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Custom Cursor Layers -->
+    <div class="cursor-dot" id="custom-cursor-dot"></div>
+    <div class="cursor-circle" id="custom-cursor-circle"></div>
+
+    <!-- Header Navigation -->
+    <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#hero">JR.</a>
+            <a class="navbar-brand fw-bold" href="#hero">JAYANT.</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navbar-btn-toggle">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#hero">Home</a>
+                        <a class="nav-link active" href="#hero">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
@@ -40,139 +48,310 @@
                         <a class="nav-link" href="#projects">Projects</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#achievements">Achievements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Timeline</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="Jayant_Rewatkar_Resume.pdf" target="_blank"
+                            class="btn-glow btn-glow-primary btn-sm text-decoration-none d-inline-block" id="nav-resume-btn">Resume</a>
+                    </li>
                 </ul>
-                <a href="Jayant_Rewatkar_Resume.pdf" target="_blank"
-                    class="btn btn-primary ms-lg-3 d-none d-lg-block">Resume</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="d-flex align-items-center vh-100 text-center text-lg-start">
+    <!-- Hero / Landing Section -->
+    <section id="hero" class="hero-sec">
+        <div class="hero-glow"></div>
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7 fade-in">
-                    <h5 class="text-primary fw-bold text-uppercase mb-3">Hello, I'm</h5>
-                    <h1 class="display-3 fw-bold text-white mb-3">Jayant Rewatkar</h1>
-                    <h3 class="text-light mb-4">Trainee Full Stack Developer</h3>
-                    <p class="lead text-white-50 mb-5">
-                        Building scalable web applications and crafting intuitive user experiences. Passionate about
-                        turning ideas into code.
-                    </p>
-                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-                        <a href="#projects" class="btn btn-primary btn-lg px-4">View My Work</a>
-                        <a href="Jayant_Rewatkar_Resume.pdf" target="_blank"
-                            class="btn btn-outline-light btn-lg px-4">Download Resume</a>
+            <div class="row align-items-center min-vh-100 py-5">
+                <div class="col-lg-8 text-start reveal-on-scroll">
+                    <!-- Badges -->
+                    <div class="tech-badge-wrapper">
+                        <span class="tech-badge"><i class="fa-brands fa-python me-1"></i> Python</span>
+                        <span class="tech-badge"><i class="fa-brands fa-java me-1"></i> Java</span>
+                        <span class="tech-badge"><i class="fa-solid fa-code me-1"></i> Full Stack</span>
+                        <span class="tech-badge"><i class="fa-solid fa-database me-1"></i> Databases & APIs</span>
                     </div>
-                </div>
-                <div class="col-lg-5 d-none d-lg-block text-center fade-in">
-                    <div class="hero-img-container">
-                        <!-- Placeholder Image -->
-                        <img src="https://placehold.co/400x400/2a2a2a/FFF?text=JR" alt="Jayant Rewatkar"
-                            class="img-fluid rounded-circle shadow-lg hero-img">
+                    
+                    <!-- Headings -->
+                    <h1 class="display-3 fw-bold text-white mb-3">
+                        <span class="gradient-text">Building Scalable</span> <br>
+                        <span class="text-white">Software Solutions.</span>
+                    </h1>
+                    
+                    <!-- Typing Animation Subheading -->
+                    <h3 class="h4 mb-4 text-light">
+                        I specialize in <span class="subgradient-text" id="typing-keyword">Backend Architecture</span>
+                    </h3>
+                    
+                    <p class="lead text-muted mb-5 col-xl-10">
+                        Software Developer passionate about building impactful applications using Python, Java, REST APIs, AI-powered solutions, and modern web technologies.
+                    </p>
+                    
+                    <!-- CTA Actions -->
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#projects" class="btn-glow btn-glow-primary text-decoration-none" id="hero-btn-projects">View Projects</a>
+                        <a href="Jayant_Rewatkar_Resume.pdf" target="_blank" class="btn-glow btn-glow-secondary text-decoration-none" id="hero-btn-resume">Download Resume</a>
+                        <a href="#contact" class="btn-glow btn-glow-outline text-decoration-none" id="hero-btn-contact">Contact Me</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-5 bg-darker">
-        <div class="container py-5">
-            <div class="text-center mb-5 fade-in">
-                <h6 class="text-primary text-uppercase fw-bold">Who I Am</h6>
-                <h2 class="fw-bold text-white">About Me</h2>
-                <div class="divider mx-auto bg-primary"></div>
+    <!-- About Me Section -->
+    <section id="about" class="bg-darker">
+        <div class="container">
+            <div class="section-header text-center reveal-on-scroll">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title text-white">Who I Am</h2>
+                <div class="section-divider mx-auto"></div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center text-white-50 fade-in">
-                    <p class="fs-5 mb-4">
-                        Highly motivated MCA student (Second Year) with strong fundamentals in software development,
-                        data structures, and web technologies. Hands-on experience in Python, Java, SQL, and full-stack
-                        web development.
+            
+            <div class="about-grid reveal-on-scroll">
+                <div>
+                    <h3 class="h4 mb-3 text-white">Passionate Software Engineer</h3>
+                    <p class="text-muted mb-3">
+                        I am an MCA Graduate from <strong>G H Raisoni International Skill Tech University</strong>. Throughout my studies, I have focused on establishing a robust foundation in Data Structures, Algorithms, and clean coding paradigms.
                     </p>
-                    <p class="fs-5 mb-0">
-                        Proven ability to design, develop, and optimize real-world applications through academic and
-                        self-driven projects. Passionate about solving real problems, writing clean and scalable code,
-                        and continuously learning emerging technologies.
+                    <p class="text-muted mb-3">
+                        With solid expertise across Python, Java, and SQL stacks, I enjoy crafting backend systems, designing scalable REST APIs, and modeling performant database architectures. I love solving real-world challenges through automation, clean OOP design, and machine learning integrations.
                     </p>
+                    <p class="text-muted">
+                        I thrive in collaborative agile settings and strive to construct software that runs efficiently, scales seamlessly, and delivers genuine value to users.
+                    </p>
+                </div>
+                
+                <div class="glow-card">
+                    <h4 class="h5 mb-4 text-white">Core Engineering Competencies</h4>
+                    <div class="about-bullets">
+                        <div class="about-bullet-item">
+                            <i class="fa-solid fa-brain"></i>
+                            <div>
+                                <div class="about-bullet-title">Algorithms & DSA</div>
+                                <div class="about-bullet-desc">Strong fundamentals in sorting, trees, and optimizations.</div>
+                            </div>
+                        </div>
+                        <div class="about-bullet-item">
+                            <i class="fa-solid fa-gears"></i>
+                            <div>
+                                <div class="about-bullet-title">Backend Architecture</div>
+                                <div class="about-bullet-desc">Java EE and Python Django REST API services.</div>
+                            </div>
+                        </div>
+                        <div class="about-bullet-item">
+                            <i class="fa-solid fa-database"></i>
+                            <div>
+                                <div class="about-bullet-title">Database Design</div>
+                                <div class="about-bullet-desc">Structured MySQL schemas and optimized queries.</div>
+                            </div>
+                        </div>
+                        <div class="about-bullet-item">
+                            <i class="fa-solid fa-microchip"></i>
+                            <div>
+                                <div class="about-bullet-title">AI & ML Exposure</div>
+                                <div class="about-bullet-desc">Comfortable with classification pipelines and OCR processing.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5 fade-in">
-                <h6 class="text-primary text-uppercase fw-bold">My Expertise</h6>
-                <h2 class="fw-bold text-white">Technical Skills</h2>
-                <div class="divider mx-auto bg-primary"></div>
+    <!-- Technical Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header text-center reveal-on-scroll">
+                <span class="section-tag">Skills Inventory</span>
+                <h2 class="section-title text-white">Technical Expertise</h2>
+                <div class="section-divider mx-auto"></div>
             </div>
-            <div class="row g-4">
-                <!-- Frontend -->
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div
-                        class="skill-card h-100 p-4 text-center rounded-3 bg-darker border border-secondary border-opacity-25">
-                        <div class="icon-box mb-3 text-primary">
-                            <i class="fas fa-code fa-3x"></i>
+
+            <!-- Skills Category Filter -->
+            <div class="filter-container reveal-on-scroll">
+                <button class="filter-btn active" data-skill-cat="all" id="skill-filter-all">All Skills</button>
+                <button class="filter-btn" data-skill-cat="languages" id="skill-filter-lang">Languages</button>
+                <button class="filter-btn" data-skill-cat="core" id="skill-filter-core">Core CS</button>
+                <button class="filter-btn" data-skill-cat="frameworks" id="skill-filter-fw">Web & Frameworks</button>
+                <button class="filter-btn" data-skill-cat="databases" id="skill-filter-db">Databases</button>
+                <button class="filter-btn" data-skill-cat="ml" id="skill-filter-ml">AI & ML</button>
+                <button class="filter-btn" data-skill-cat="practices" id="skill-filter-prac">Practices & Tools</button>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="skills-grid reveal-on-scroll">
+                <!-- Languages -->
+                <div class="glow-card skills-card" data-skill-cat="languages">
+                    <h3 class="skills-category-title">Programming Languages</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="90%"></div></div>
                         </div>
-                        <h4 class="text-white mb-3">Frontend</h4>
-                        <ul class="list-unstyled text-white-50">
-                            <li>HTML5 & CSS3</li>
-                            <li>JavaScript (ES6+)</li>
-                            <li>Bootstrap 5</li>
-                            <li>Responsive Design</li>
-                        </ul>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">SQL</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C++ / C</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="75%"></div></div>
+                        </div>
                     </div>
                 </div>
-                <!-- Backend -->
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div
-                        class="skill-card h-100 p-4 text-center rounded-3 bg-darker border border-secondary border-opacity-25">
-                        <div class="icon-box mb-3 text-success">
-                            <i class="fas fa-server fa-3x"></i>
+
+                <!-- Core CS -->
+                <div class="glow-card skills-card" data-skill-cat="core">
+                    <h3 class="skills-category-title">Core Computer Science</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Data Structures</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="90%"></div></div>
                         </div>
-                        <h4 class="text-white mb-3">Backend</h4>
-                        <ul class="list-unstyled text-white-50">
-                            <li>Java</li>
-                            <li>Python</li>
-                            <li>Django Framework</li>
-                            <li>REST APIs</li>
-                        </ul>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Algorithms</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Object-Oriented Programming</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">System Design Basics</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="80%"></div></div>
+                        </div>
                     </div>
                 </div>
-                <!-- Database -->
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div
-                        class="skill-card h-100 p-4 text-center rounded-3 bg-darker border border-secondary border-opacity-25">
-                        <div class="icon-box mb-3 text-warning">
-                            <i class="fas fa-database fa-3x"></i>
+
+                <!-- Frameworks -->
+                <div class="glow-card skills-card" data-skill-cat="frameworks">
+                    <h3 class="skills-category-title">Web & Frameworks</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Django & REST APIs</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="85%"></div></div>
                         </div>
-                        <h4 class="text-white mb-3">Database</h4>
-                        <ul class="list-unstyled text-white-50">
-                            <li>MySQL</li>
-                            <li>Relational DB Design</li>
-                            <li>SQL Queries</li>
-                        </ul>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">React & HTML/CSS/JS</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Bootstrap & JSP/Servlets</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="75%"></div></div>
+                        </div>
                     </div>
                 </div>
-                <!-- Tools -->
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div
-                        class="skill-card h-100 p-4 text-center rounded-3 bg-darker border border-secondary border-opacity-25">
-                        <div class="icon-box mb-3 text-info">
-                            <i class="fas fa-tools fa-3x"></i>
+
+                <!-- Databases -->
+                <div class="glow-card skills-card" data-skill-cat="databases">
+                    <h3 class="skills-category-title">Databases & RDBMS</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MySQL (Query Optimization)</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="85%"></div></div>
                         </div>
-                        <h4 class="text-white mb-3">Tools</h4>
-                        <ul class="list-unstyled text-white-50">
-                            <li>Git & GitHub</li>
-                            <li>VS Code</li>
-                            <li>Postman</li>
-                            <li>Command Line</li>
-                        </ul>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MongoDB</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Machine Learning -->
+                <div class="glow-card skills-card" data-skill-cat="ml">
+                    <h3 class="skills-category-title">Machine Learning / AI</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Scikit-learn (ML Classification)</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="75%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">OCR Parsing & CV Basics</span>
+                                <span class="skill-percentage">70%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="70%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practices -->
+                <div class="glow-card skills-card" data-skill-cat="practices">
+                    <h3 class="skills-category-title">Engineering Practices & Tools</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Git & GitHub</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Unit / Integration Testing</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Maven, VS Code, IntelliJ, PyCharm</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="80%"></div></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -180,177 +359,298 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-5 bg-darker">
-        <div class="container py-5">
-            <div class="text-center mb-5 fade-in">
-                <h6 class="text-primary text-uppercase fw-bold">My Portfolio</h6>
-                <h2 class="fw-bold text-white">Recent Projects</h2>
-                <div class="divider mx-auto bg-primary"></div>
+    <section id="projects" class="bg-darker">
+        <div class="container">
+            <div class="section-header text-center reveal-on-scroll">
+                <span class="section-tag">My Work</span>
+                <h2 class="section-title text-white">Full-Cycle Software Projects</h2>
+                <div class="section-divider mx-auto"></div>
             </div>
-            <div class="row g-4 justify-content-center">
 
+            <!-- Project Filters -->
+            <div class="filter-container reveal-on-scroll">
+                <button class="filter-btn active" data-project-cat="all" id="proj-filter-all">All Projects</button>
+                <button class="filter-btn" data-project-cat="python" id="proj-filter-py">Python & Streamlit</button>
+                <button class="filter-btn" data-project-cat="java" id="proj-filter-jv">Java EE</button>
+                <button class="filter-btn" data-project-cat="fullstack" id="proj-filter-fs">Full Stack (React/Django)</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="project-grid reveal-on-scroll">
                 <!-- Project 1 -->
-                <div class="col-md-6 col-lg-4 fade-in">
-                    <div class="card project-card h-100 bg-dark border-0 shadow-lg text-white overflow-hidden">
-                        <div class="card-img-top-wrapper overflow-hidden">
-                            <!-- Placeholder Image -->
-                            <img src="https://placehold.co/600x400/1a1a1a/FFF?text=Smart+Budget" class="card-img-top"
-                                alt="Smart Budget Planner">
+                <div class="project-card-wrapper" data-project-cat="python">
+                    <div class="glow-card project-card">
+                        <div class="project-header">
+                            <div class="project-folder"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/rewatkarjayant7-prog" target="_blank" class="project-link-item" id="p1-github-link"><i class="fa-brands fa-github"></i></a>
+                            </div>
                         </div>
-                        <div class="card-body p-4 d-flex flex-column">
-                            <h4 class="card-title fw-bold mb-3">Smart Budget Planner</h4>
-                            <p class="card-text text-white-50 flex-grow-1">
-                                An AI-enabled web application for automated income, expense, and budget management.
-                                Features OCR-based receipt scanning, ML-driven expense categorization, and interactive
-                                dashboards.
-                            </p>
-                            <div class="mb-3">
-                                <span class="badge bg-secondary mb-1">Python</span>
-                                <span class="badge bg-secondary mb-1">Streamlit</span>
-                                <span class="badge bg-secondary mb-1">MongoDB</span>
-                                <span class="badge bg-secondary mb-1">ML & OCR</span>
-                            </div>
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-outline-primary btn-sm w-100"><i
-                                        class="fab fa-github me-2"></i>GitHub</a>
-                                <a href="#" class="btn btn-primary btn-sm w-100"><i
-                                        class="fas fa-external-link-alt me-2"></i>Live Demo</a>
-                            </div>
+                        <h3 class="project-title">Smart Budget Planner & Expense Tracker</h3>
+                        <p class="project-desc">
+                            AI-enabled fintech web application for automated receipt ingestion, expense classification, and real-time budget tracking.
+                        </p>
+                        <ul class="project-bullets-list">
+                            <li>Built a 3-stage data pipeline (OCR receipt ingestion, scikit-learn classification, MongoDB storage) that cuts manual entry entirely.</li>
+                            <li>Designed and verified CRUD REST APIs with session-based authentication to block data consistency bugs before users connect.</li>
+                            <li>Applied array-based aggregation and time-series grouping to power alert triggers and real-time budget dashboards.</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="project-tech-badge">Python</span>
+                            <span class="project-tech-badge">Streamlit</span>
+                            <span class="project-tech-badge">MongoDB</span>
+                            <span class="project-tech-badge">scikit-learn</span>
+                            <span class="project-tech-badge">OCR</span>
+                            <span class="project-tech-badge">REST APIs</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="col-md-6 col-lg-4 fade-in">
-                    <div class="card project-card h-100 bg-dark border-0 shadow-lg text-white overflow-hidden">
-                        <div class="card-img-top-wrapper overflow-hidden">
-                            <!-- Placeholder Image -->
-                            <img src="https://placehold.co/600x400/1a1a1a/FFF?text=Weapon+Detection"
-                                class="card-img-top" alt="Weapon Detection System">
+                <div class="project-card-wrapper" data-project-cat="java">
+                    <div class="glow-card project-card">
+                        <div class="project-header">
+                            <div class="project-folder"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/rewatkarjayant7-prog" target="_blank" class="project-link-item" id="p2-github-link"><i class="fa-brands fa-github"></i></a>
+                            </div>
                         </div>
-                        <div class="card-body p-4 d-flex flex-column">
-                            <h4 class="card-title fw-bold mb-3">Weapon Detection AI</h4>
-                            <p class="card-text text-white-50 flex-grow-1">
-                                A real-time detection system using Deep Learning to identify firearms and knives from
-                                video streams. Trained on custom datasets for high accuracy in low-light and occluded
-                                scenarios.
-                            </p>
-                            <div class="mb-3">
-                                <span class="badge bg-secondary mb-1">Deep Learning</span>
-                                <span class="badge bg-secondary mb-1">Python</span>
-                                <span class="badge bg-secondary mb-1">Computer Vision</span>
-                            </div>
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-outline-primary btn-sm w-100"><i
-                                        class="fab fa-github me-2"></i>GitHub</a>
-                                <a href="#" class="btn btn-primary btn-sm w-100"><i
-                                        class="fas fa-external-link-alt me-2"></i>Live Demo</a>
-                            </div>
+                        <h3 class="project-title">Food Waste Management System</h3>
+                        <p class="project-desc">
+                            An enterprise donation matching web platform connecting food donors to beneficiaries through location-aware matching algorithms.
+                        </p>
+                        <ul class="project-bullets-list">
+                            <li>Developed a Java EE platform with role-based workflows and real-time alerts to optimize regional coordination.</li>
+                            <li>Designed a normalized 5-table MySQL database using B-tree indices to optimize query response times.</li>
+                            <li>Wrote Maven-managed unit tests for the data-access layer and integrated a Chart.js analytics dashboard.</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="project-tech-badge">Java EE</span>
+                            <span class="project-tech-badge">JSP & Servlets</span>
+                            <span class="project-tech-badge">JDBC</span>
+                            <span class="project-tech-badge">MySQL</span>
+                            <span class="project-tech-badge">Maven</span>
+                            <span class="project-tech-badge">Chart.js</span>
+                            <span class="project-tech-badge">Bootstrap</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="col-md-6 col-lg-4 fade-in">
-                    <div class="card project-card h-100 bg-dark border-0 shadow-lg text-white overflow-hidden">
-                        <div class="card-img-top-wrapper overflow-hidden">
-                            <!-- Placeholder Image -->
-                            <img src="https://placehold.co/600x400/1a1a1a/FFF?text=Student+System" class="card-img-top"
-                                alt="Student Management System">
+                <div class="project-card-wrapper" data-project-cat="fullstack">
+                    <div class="glow-card project-card">
+                        <div class="project-header">
+                            <div class="project-folder"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/rewatkarjayant7-prog" target="_blank" class="project-link-item" id="p3-github-link"><i class="fa-brands fa-github"></i></a>
+                            </div>
                         </div>
-                        <div class="card-body p-4 d-flex flex-column">
-                            <h4 class="card-title fw-bold mb-3">Student Management System</h4>
-                            <p class="card-text text-white-50 flex-grow-1">
-                                A scalable full-stack web application to manage student records, courses, and
-                                attendance. Features role-based access control (Admin, Faculty, Student) and optimized
-                                SQL queries.
-                            </p>
-                            <div class="mb-3">
-                                <span class="badge bg-secondary mb-1">React.js</span>
-                                <span class="badge bg-secondary mb-1">Django</span>
-                                <span class="badge bg-secondary mb-1">Node.js</span>
-                                <span class="badge bg-secondary mb-1">SQL</span>
-                            </div>
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-outline-primary btn-sm w-100"><i
-                                        class="fab fa-github me-2"></i>GitHub</a>
-                                <a href="#" class="btn btn-primary btn-sm w-100"><i
-                                        class="fas fa-external-link-alt me-2"></i>Live Demo</a>
-                            </div>
+                        <h3 class="project-title">Student Management System</h3>
+                        <p class="project-desc">
+                            A scalable academic portal (ERP) supporting role-based dashboards, authentication, grade administration, and attendance flows.
+                        </p>
+                        <ul class="project-bullets-list">
+                            <li>Built and deployed React.js panels linked to a Django REST backend using role-based access control.</li>
+                            <li>Authored 15+ comprehensive endpoints and validated logic flows using integration test models.</li>
+                            <li>Optimized slow database response times by applying indexing structures and multi-table JOIN tuning.</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="project-tech-badge">React.js</span>
+                            <span class="project-tech-badge">Django</span>
+                            <span class="project-tech-badge">Node.js</span>
+                            <span class="project-tech-badge">REST APIs</span>
+                            <span class="project-tech-badge">SQL</span>
+                            <span class="project-tech-badge">Git Workflow</span>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="py-5 text-center text-white bg-primary bg-gradient d-flex align-items-center"
-        style="min-height: 300px;">
-        <div class="container fade-in">
-            <h2 class="fw-bold mb-4">Check Out My Resume</h2>
-            <p class="lead mb-4 px-lg-5">
-                Detailed breakdown of my skills, education, and professional experience.
-            </p>
-            <a href="Jayant_Rewatkar_Resume.pdf" target="_blank"
-                class="btn btn-light btn-lg text-primary fw-bold shadow-lg px-5 py-3 rounded-pill">
-                <i class="fas fa-download me-2"></i> Download Resume
-            </a>
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="container">
+            <div class="section-header text-center reveal-on-scroll">
+                <span class="section-tag">Key Milestones</span>
+                <h2 class="section-title text-white">Engineering Achievements</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <div class="achievements-grid reveal-on-scroll">
+                <!-- Card 1 -->
+                <div class="glow-card achievement-card">
+                    <div class="achievement-icon"><i class="fa-solid fa-receipt"></i></div>
+                    <div class="achievement-text">AI Powered Expense Tracker</div>
+                </div>
+                <!-- Card 2 -->
+                <div class="glow-card achievement-card">
+                    <div class="achievement-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <div class="achievement-text">Enterprise Food Waste Platform</div>
+                </div>
+                <!-- Card 3 -->
+                <div class="glow-card achievement-card">
+                    <div class="achievement-icon"><i class="fa-solid fa-school"></i></div>
+                    <div class="achievement-text">Full Stack Student ERP</div>
+                </div>
+                <!-- Card 4 -->
+                <div class="glow-card achievement-card">
+                    <div class="achievement-icon"><i class="fa-solid fa-code"></i></div>
+                    <div class="achievement-text">Strong DSA Foundation</div>
+                </div>
+                <!-- Card 5 -->
+                <div class="glow-card achievement-card">
+                    <div class="achievement-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <div class="achievement-text">REST API Development</div>
+                </div>
+                <!-- Card 6 -->
+                <div class="glow-card achievement-card">
+                    <div class="achievement-icon"><i class="fa-solid fa-database"></i></div>
+                    <div class="achievement-text">Database Optimization</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education and Certifications Timeline -->
+    <section id="education" class="bg-darker">
+        <div class="container">
+            <div class="section-header text-center reveal-on-scroll">
+                <span class="section-tag">My Path</span>
+                <h2 class="section-title text-white">Education & Certifications</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <div class="edu-cert-container">
+                <!-- Left: Timeline Education -->
+                <div class="glow-card reveal-on-scroll">
+                    <h3 class="h4 text-white mb-5"><i class="fa-solid fa-graduation-cap me-2 text-primary"></i> Academic Timeline</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">Sep 2024 – May 2026</div>
+                            <h4 class="timeline-degree">Master of Computer Applications (MCA)</h4>
+                            <div class="timeline-inst">G H Raisoni International Skill Tech University, Pune</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">Jun 2021 – Apr 2024</div>
+                            <h4 class="timeline-degree">Bachelor of Computer Applications (BCA)</h4>
+                            <div class="timeline-inst">GH Raisoni College of Engineering and Technology, Nagpur</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Certifications -->
+                <div class="glow-card cert-card reveal-on-scroll">
+                    <h3 class="h4 text-white mb-5"><i class="fa-solid fa-award me-2 text-secondary"></i> Credentials</h3>
+                    
+                    <div class="cert-item">
+                        <div class="cert-badge-icon"><i class="fa-solid fa-microchip"></i></div>
+                        <div>
+                            <div class="cert-year">2025</div>
+                            <h4 class="cert-name">Full Stack Java Developer</h4>
+                            <div class="cert-issuer">Seed Infotech Ltd. (with AI & ML Exposure)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5 fade-in">
-                <h6 class="text-primary text-uppercase fw-bold">Get In Touch</h6>
-                <h2 class="fw-bold text-white">Contact Me</h2>
-                <div class="divider mx-auto bg-primary"></div>
+    <section id="contact">
+        <div class="container">
+            <div class="section-header text-center reveal-on-scroll">
+                <span class="section-tag">Connect</span>
+                <h2 class="section-title text-white">Get in Touch</h2>
+                <div class="section-divider mx-auto"></div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="card bg-darker border-0 shadow-lg p-4 p-md-5">
-                        <div class="card-body text-center">
-                            <p class="lead text-white-50 mb-5">
-                                I'm currently available for freelance work and full-time opportunities. If you have a
-                                project that needs some creative touch, or just want to say hi, my inbox is always open.
-                            </p>
-                            <div class="d-flex flex-wrap justify-content-center gap-4 mb-5">
-                                <a href="mailto:rewatkarjayant7@gmail.com"
-                                    class="contact-link text-white text-decoration-none">
-                                    <div class="icon-circle bg-primary text-white mb-2 mx-auto">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <span class="d-block mt-2">rewatkarjayant7@gmail.com</span>
-                                </a>
-                                <a href="https://github.com/rewatkarjayant7-prog" target="_blank"
-                                    class="contact-link text-white text-decoration-none">
-                                    <div class="icon-circle bg-dark text-white mb-2 mx-auto border border-secondary">
-                                        <i class="fab fa-github"></i>
-                                    </div>
-                                    <span class="d-block mt-2">GitHub</span>
-                                </a>
-                                <a href="https://www.linkedin.com/in/jayant-rewatkar-72bb6a2a1/" target="_blank"
-                                    class="contact-link text-white text-decoration-none">
-                                    <div class="icon-circle bg-info text-white mb-2 mx-auto">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </div>
-                                    <span class="d-block mt-2">LinkedIn</span>
-                                </a>
+
+            <div class="contact-container">
+                <!-- Left Details -->
+                <div class="reveal-on-scroll">
+                    <h3 class="h4 text-white mb-4">Let's build something together</h3>
+                    <p class="text-muted col-lg-11">
+                        I am actively seeking Software Engineering opportunities and internships. If you want to talk about REST API architecture, database optimizations, or discuss any project ideas, feel free to drop a message or reach out on my socials!
+                    </p>
+                    
+                    <div class="contact-info-list">
+                        <a href="mailto:rewatkarjayant7@gmail.com" class="contact-item-link" id="contact-email-action">
+                            <div class="contact-item-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <div class="contact-item-label">Email</div>
+                                <div class="contact-item-val">rewatkarjayant7@gmail.com</div>
                             </div>
-                            <p class="text-white-50 small mb-0">
-                                &copy; 2026 Jayant Rewatkar. All Rights Reserved.
-                            </p>
-                        </div>
+                        </a>
+                        <a href="tel:+919226723890" class="contact-item-link" id="contact-phone-action">
+                            <div class="contact-item-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <div class="contact-item-label">Phone</div>
+                                <div class="contact-item-val">+91 9226723890</div>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/jayant-rewatkar-72bb6a2a1" target="_blank" class="contact-item-link" id="contact-linkedin-action">
+                            <div class="contact-item-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                            <div>
+                                <div class="contact-item-label">LinkedIn</div>
+                                <div class="contact-item-val">Jayant Rewatkar</div>
+                            </div>
+                        </a>
+                        <a href="https://github.com/rewatkarjayant7-prog" target="_blank" class="contact-item-link" id="contact-github-action">
+                            <div class="contact-item-icon"><i class="fa-brands fa-github"></i></div>
+                            <div>
+                                <div class="contact-item-label">GitHub</div>
+                                <div class="contact-item-val">rewatkarjayant7-prog</div>
+                            </div>
+                        </a>
                     </div>
+                </div>
+
+                <!-- Right Stripe Form -->
+                <div class="glow-card reveal-on-scroll">
+                    <form id="contact-form" class="stripe-form" method="POST">
+                        <div class="form-group">
+                            <input type="text" id="contact-name" name="name" placeholder=" " required>
+                            <label for="contact-name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contact-email" name="email" placeholder=" " required>
+                            <label for="contact-email">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="contact-subject" name="subject" placeholder=" " required>
+                            <label for="contact-subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contact-message" name="message" rows="5" placeholder=" " required></textarea>
+                            <label for="contact-message">Message</label>
+                        </div>
+                        <button type="submit" class="btn-glow btn-glow-primary w-100 py-3" id="form-submit-btn">Send Message</button>
+                        <div id="contact-form-status" class="mt-3 p-3 rounded" style="display: none; font-size: 0.9rem; font-weight: 500;"></div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Script -->
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <div class="footer-socials">
+                <a href="https://github.com/rewatkarjayant7-prog" target="_blank" class="footer-social-link" id="footer-github-link"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/jayant-rewatkar-72bb6a2a1" target="_blank" class="footer-social-link" id="footer-linkedin-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:rewatkarjayant7@gmail.com" class="footer-social-link" id="footer-email-link"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p class="footer-text mb-0">&copy; 2026 Jayant Rewatkar. All rights reserved. Crafted with precision.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Custom Logic Code -->
     <script src="script.js"></script>
 </body>
 
