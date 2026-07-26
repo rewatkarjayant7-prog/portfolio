@@ -364,16 +364,9 @@ document.addEventListener('DOMContentLoaded', () => {
     animateParticles();
 
     // ==========================================
-    // 8. FUNCTIONAL CONTACT FORM HANDLER (EmailJS / Web3Forms)
+    // 8. FUNCTIONAL CONTACT FORM HANDLER (Web3Forms)
     // ==========================================
-    // Configure your active email provider credentials below:
-    const EMAILJS_PUBLIC_KEY = 'YOUR_EMAILJS_PUBLIC_KEY'; // E.g., 'xxxxxxxxx'
-    const EMAILJS_SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID'; // E.g., 'service_xxxxxxx'
-    const EMAILJS_TEMPLATE_ID = 'YOUR_EMAILJS_TEMPLATE_ID'; // E.g., 'template_xxxxxxx'
-
-    const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'; // E.g., 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxx'
-
-    const contactForm = document.getElementById('contact-form');
+    const contactForm = document.getElementById('form');
     const contactStatus = document.getElementById('contact-form-status');
     const submitBtn = document.getElementById('form-submit-btn');
 
@@ -391,84 +384,41 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
             
-            // Clear prior status styling
+            // Clear prior status styling and hide
             contactStatus.style.display = 'none';
             contactStatus.className = 'mt-3 p-3 rounded';
 
-            // 2. Identify active provider
-            const hasEmailJS = (EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY' && EMAILJS_PUBLIC_KEY.trim() !== '');
-            const hasWeb3Forms = (WEB3FORMS_ACCESS_KEY !== 'YOUR_WEB3FORMS_ACCESS_KEY' && WEB3FORMS_ACCESS_KEY.trim() !== '');
+            const formData = new FormData(contactForm);
 
-            if (!hasEmailJS && !hasWeb3Forms) {
-                // Inform user to supply credentials
-                contactStatus.textContent = 'Please configure your EmailJS or Web3Forms credentials at the top of script.js.';
-                contactStatus.classList.add('status-error');
-                contactStatus.style.display = 'block';
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send Message';
-                console.warn('No mail setup found. Set EMAILJS or WEB3FORMS credentials in script.js.');
-                return;
-            }
-
-            // 3. Dispatch using active service
-            if (hasEmailJS) {
-                // Initialize EmailJS with Public Key
-                emailjs.init(EMAILJS_PUBLIC_KEY);
-
-                // Send form directly using EmailJS
-                emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
-                .then(() => {
+            // Send data using Web3Forms endpoint
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(async response => {
+                const data = await response.json();
+                if (response.ok && data.success) {
                     contactStatus.textContent = '✅ Your message has been sent successfully.';
                     contactStatus.classList.add('status-success');
                     contactStatus.style.display = 'block';
                     contactForm.reset();
-                })
-                .catch(error => {
-                    console.error('EmailJS Error Details:', error);
-                    contactStatus.textContent = `Failed to send message: ${error.text || error.message || 'Unknown EmailJS error'}. Please try again later.`;
-                    contactStatus.classList.add('status-error');
-                    contactStatus.style.display = 'block';
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Message';
-                });
-
-            } else if (hasWeb3Forms) {
-                const formData = new FormData(contactForm);
-                formData.append("access_key", WEB3FORMS_ACCESS_KEY);
-                formData.append("subject", `New Contact: ${formData.get("subject")}`);
-                formData.append("from_name", formData.get("name"));
-
-                fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(async response => {
-                    const data = await response.json();
-                    if (response.ok && data.success) {
-                        contactStatus.textContent = '✅ Your message has been sent successfully.';
-                        contactStatus.classList.add('status-success');
-                        contactStatus.style.display = 'block';
-                        contactForm.reset();
-                    } else {
-                        throw new Error(data.message || 'Web3Forms server error');
-                    }
-                })
-                .catch(error => {
-                    console.error('Web3Forms Error Details:', error);
-                    contactStatus.textContent = `Failed to send message: ${error.message}. Please try again later.`;
-                    contactStatus.classList.add('status-error');
-                    contactStatus.style.display = 'block';
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Message';
-                });
-            }
+                } else {
+                    throw new Error(data.message || 'Web3Forms server error');
+                }
+            })
+            .catch(error => {
+                console.error('Web3Forms Error Details:', error);
+                contactStatus.textContent = `Failed to send message: ${error.message}. Please try again later.`;
+                contactStatus.classList.add('status-error');
+                contactStatus.style.display = 'block';
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            });
         });
     }
 });
